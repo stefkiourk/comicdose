@@ -52,7 +52,7 @@ app.get('/goose', function(req, res){
       var ret =  body.slice(goose - 32, body.length);
       var match = ret.match(/(?:"[^"]*"|^[^"]*$)/)[0].replace(/"/g, "");
       res.send(match);
-  }
+    }
   });
 });
 

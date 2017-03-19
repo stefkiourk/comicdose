@@ -4,7 +4,7 @@ Loading comic content from my favorite web comics, uncluttered, in one page. Bec
 
 ### Todo
 
-* Latest? Random? Both? Aaaah
+* Latest? Random? Both? Some comics offer an endpoint to pull a random one
 * Alright alright it (kind of) works. Refactor now
 * Add more comics? Plug n' play with minimum customization to the regex / logic?
 * Missing comics / numbers in URL numbering logic?
@@ -19,6 +19,21 @@ Loading comic content from my favorite web comics, uncluttered, in one page. Bec
 * [Express](https://expressjs.com/)
 * [Request](https://www.npmjs.com/package/request)
 * [jQuery](https://jquery.com/)
+
+### Routes
+* /xkcd
+* /pbf
+* /cah (Cyanide & Happiness)
+* /goose (Abstruse Goose)
+* /spikedmath (Spiked Math)
+* /smbc
+* / (Serving the above)
+* /comics (List of links to the comics, read from comics.json)
+
+### Params
+(At the moment only present for XCKD)
+If "r" is set to one, returns random
+If "pretty" is set to one, returns html rendered image
 
 ### Who?
 Stefanos Kiourkoulis [GH](https://github.com/stefkiourk), [Web](https://stefki.com)
