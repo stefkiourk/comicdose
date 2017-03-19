@@ -1,0 +1,34 @@
+{
+  "comics": [
+    {
+      "name": "xkcd",
+      "slogan": "a slogan",
+      "url": "http://xckd.com"
+    },
+    {
+      "name": "Spiked Math",
+      "slogan": "a slogan for spiked math",
+      "url": "http://spikedmath.com"
+    },
+    {
+      "name": "Abstruse Goose",
+      "slogan": "Strip cartoon about math, science, and geek culture.",
+      "url": "http://abstrusegoose.com/"
+    },
+    {
+      "name": "Cyanide & Happiness",
+      "slogan": "",
+      "url": "http://explosm.net/comics/latest"
+    },
+    {
+      "name": "SMBC",
+      "slogan": "Saturday Morning Breakfast Cereal By Zach Weinersmith",
+      "url": "http://www.smbc-comics.com/"
+    },
+    {
+      "name": "PBF",
+      "slogan": "The Perry Bible Fellowship",
+      "url": "http://pbfcomics.com/"
+    }
+  ]
+}
