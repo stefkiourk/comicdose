@@ -94,17 +94,15 @@ app.get('/pbf', function(req, res){
 });
 
 app.get('/smbc', function(req, res){
-  var strip = Math.floor(Math.random() * (277 - 1 + 1)) + 1;
   var theReq = 'http://www.smbc-comics.com/';
     request(theReq, function (error, response, body) {
       debugRequest(theReq, error, response, body);
-      var goose = body.indexOf("http://www.smbc-comics.com/comics/");
+      var ret = body.indexOf("http://www.smbc-comics.com/comics/");
       if (response.statusCode != 404){
-        var ret =  body.slice(goose - 3, body.length);
+        ret =  body.slice(ret - 3, body.length);
         var re = /(["'])(?:(?=(\\?))\2.)*?\1/;
-        var match = re.exec(ret);
-        //res.send("<img src=" + match[0] + "/>");
-        res.send(match[0].slice(1, match[0].length - 1));
+        var match = ret.match(/(?:"[^"]*"|^[^"]*$)/)[0].replace(/"/g, "");
+        res.send(match);
       }
     });
 });
