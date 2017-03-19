@@ -5,15 +5,14 @@ body{
 img{
   width: 75px;
   height: 75px;
-  float: left;
+  display: block;
+  margin: auto;
   border: 5px solid #333329;
-  margin: 5px;
   padding: 2px;
   background-color: white;
 }
 
 .img-loaded{
-
   width: initial;
   height: initial;
 }

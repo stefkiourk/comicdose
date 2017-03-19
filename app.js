@@ -8,6 +8,7 @@ var listenPort = 3001;
 app.set('views', './views');
 app.set('view engine', 'pug');
 app.use("*/views", express.static(__dirname + '/views'));
+app.use("*/resources", express.static(__dirname + '/resources'));
 
 app.get('/', function(req, res){
   res.render('index');
