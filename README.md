@@ -2,6 +2,12 @@
 
 Loading comic content from my favorite web comics, uncluttered, in one page. Because lazy. This should never be under an IFD; Total and absolute respect for the content creators, especially Randall; By the way, his books are amazing. Go get them!
 
+### How?
+1. node app.js
+2. browse http://localhost:[port]/ (or the rest of the endpoints mentioned below)
+
+port is set in app.js
+
 ### Todo
 
 * Latest? Random? Both? Some comics offer an endpoint to pull a random one
