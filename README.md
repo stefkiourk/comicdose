@@ -9,7 +9,7 @@ Loading comic content from my favorite web comics, uncluttered, in one page. Bec
 * Add more comics? Plug n' play with minimum customization to the regex / logic?
 * Missing comics / numbers in URL numbering logic?
 
-### (Talking to myself) So you did this to save a few clicks?
+### (Talking to myself) So did you do this to save a few clicks?
 
 ...That's a loaded question.
 
@@ -32,8 +32,8 @@ Loading comic content from my favorite web comics, uncluttered, in one page. Bec
 
 ### Params
 (At the moment only present for XCKD)
-If "r" is set to one, returns random
-If "pretty" is set to one, returns html rendered image
+If "r" is set to 1, returns random
+If "pretty" is set to 1, returns html rendered image
 
 ### Who?
 Stefanos Kiourkoulis [GH](https://github.com/stefkiourk), [Web](https://stefki.com)
