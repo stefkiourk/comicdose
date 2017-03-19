@@ -13,13 +13,19 @@ app.get('/', function(req, res){
   res.render('index');
 });
 
-app.get('/randomxkcd', function(req, res){
-  var strip = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-  var theReq = 'https://xkcd.com/' + strip + '/info.0.json';
+app.get('/xkcd', function(req, res){
+  var theReq = "https://xkcd.com/info.0.json";
   request(theReq, function (error, response, body) {
     debugRequest(theReq, error, response, body);
-    //res.send('<img src="' + JSON.parse(body)["img"] + '"/>' + "<br><p>" + theReq + "</p>");
-    res.send(JSON.parse(body)["img"]);
+    if (req.query["r"] == 1){
+      var strip = Math.floor(Math.random() * (JSON.parse(body)["num"] - 1 + 1)) + 1;
+      console.log(JSON.parse(body)["num"]);
+      theReq = 'https://xkcd.com/' + strip + '/info.0.json';
+      request(theReq, function (error, response, body) {
+        res.send(JSON.parse(body)["img"]);
+      });
+    }else
+      res.send(JSON.parse(body)["img"]);
   });
 });
 
@@ -45,48 +51,45 @@ app.get('/spikedmath', function(req, res){
 });
 
 app.get('/goose', function(req, res){
-  var strip = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-  var theReq = 'http://abstrusegoose.com/' + strip;
+  var theReq = 'http://abstrusegoose.com/';
   request(theReq, function (error, response, body) {
     debugRequest(theReq, error, response, body);
     if (response.statusCode != 404){
       var goose = body.indexOf("strips");
       var ret =  body.slice(goose - 32, body.length);
-      var re = /(["'])(?:(?=(\\?))\2.)*?\1/;
-      var match = re.exec(ret);
-      //res.send("<img src=" + match[0] + "/>");
-      res.send(match[0].slice(1, match[0].length - 1));
+      var match = ret.match(/(?:"[^"]*"|^[^"]*$)/)[0].replace(/"/g, "");
+      res.send(match);
   }
   });
 });
 
 app.get('/cah', function(req, res){
-  var strip = Math.floor(Math.random() * (4000 - 38 + 1)) + 38;
-  var theReq = 'http://explosm.net/comics/' + strip;
+  var theReq = 'http://explosm.net/comics/latest';
   request(theReq, function (error, response, body) {
     debugRequest(theReq, error, response, body);
     var ret = body.split('og:image')[1];
     ret = ret.slice(5, ret.length);
-    var re = /(["'])(?:(?=(\\?))\2.)*?\1/;
-    var match = re.exec(ret);
-    //res.send("<img src=" + match[0] + "/>");
-    res.send(match[0].slice(1, match[0].length - 1));
+    var match = ret.match(/(?:"[^"]*"|^[^"]*$)/)[0].replace(/"/g, "");
+    res.send(match);
   });
 });
 
 app.get('/pbf', function(req, res){
-  var strip = Math.floor(Math.random() * (277 - 1 + 1)) + 1;
-  var theReq = 'http://pbfcomics.com/' + strip;
+  var theReq = 'http://pbfcomics.com';
     request(theReq, function (error, response, body) {
       debugRequest(theReq, error, response, body);
-      if (response.statusCode != 404){
+      var ret = body.split('<a name=')[1];
+      ret = ret.slice(5, ret.length);
+      var re = /(["'])(?:(?=(\\?))\2.)*?\1/;
+      var match = ret.match(/(?:"[^"]*"|^[^"]*$)/)[0].replace(/"/g, "");
+      request(theReq + match, function (error, response, body) {
+        debugRequest(theReq, error, response, body);
         var ret = body.split('og:image')[1];
         ret = ret.slice(5, ret.length);
         var re = /(["'])(?:(?=(\\?))\2.)*?\1/;
-        var match = re.exec(ret);
-        //res.send("<img src=" + match[0] + "/>");
-        res.send(match[0].slice(1, match[0].length - 1));
-    }
+        var match = ret.match(/(?:"[^"]*"|^[^"]*$)/)[0].replace(/"/g, "");
+        res.send(match);
+      });
     });
 });
 

@@ -3,7 +3,7 @@ $(document).ready(function(){
           postImageLoad(cah, result);
       }});
 
-  $.ajax({url: "randomxkcd", success: function(result){
+  $.ajax({url: "xkcd", success: function(result){
           postImageLoad(xkcd, result);
       }});
 
