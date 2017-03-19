@@ -20,6 +20,5 @@ Loading comic content from my favorite web comics, uncluttered, in one page. Bec
 * [Request](https://www.npmjs.com/package/request)
 * [jQuery](https://jquery.com/)
 
-### Who & License
-[ISC](https://opensource.org/licenses/ISC)
+### Who?
 Stefanos Kiourkoulis [GH](https://github.com/stefkiourk), [Web](https://stefki.com)
