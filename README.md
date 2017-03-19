@@ -21,7 +21,7 @@ port is set in app.js
 
 ### Tech
 
-* [Node.JS](https://nodejs.org/en/)
+* [Node.js](https://nodejs.org/en/)
 * [Express](https://expressjs.com/)
 * [Request](https://www.npmjs.com/package/request)
 * [jQuery](https://jquery.com/)
