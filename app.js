@@ -30,16 +30,9 @@ app.get('/xkcd', function(req, res){
 });
 
 app.get('/spikedmath', function(req, res){
-  var strip = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-  if (strip < 100)
-    strip = "0" + strip;
-  var theReq = 'http://spikedmath.com/'
-  theReq = req.query["r"] == 1 ? theReq+= strip + '.html' : theReq;
-  if (req.params.r == 1)
-    var theReq = 'http://spikedmath.com/' + strip + '.html';
+  var theReq = 'http://spikedmath.com/';
   request(theReq, function (error, response, body) {
     debugRequest(theReq, error, response, body);
-    //res.send('<img src="' + JSON.parse(body)["img"] + '"/>' + "<br><p>" + theReq + "</p>");
     var ret = body.split('asset-body')[1];
     ret = ret.slice(5, ret.length);
     var match = ret.match(/(?:"[^"]*"|^[^"]*$)/)[0].replace(/"/g, "");
